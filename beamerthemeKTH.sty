@@ -1,0 +1,534 @@
+\ProvidesPackage{beamerthemeKTH}[2016/06/21]
+\mode<presentation>
+\RequirePackage{tikz}
+\RequirePackage{amssymb}
+% nice symbols
+\RequirePackage{fontawesome}
+\usepackage{manfnt}
+
+\usepackage{graphicx}
+\usepackage{soul}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[percent]{overpic}
+
+% to create plots
+\usepackage{pgfplots}
+
+% Define KTH Colors
+\definecolor{kthcolor}{RGB}{25,84,166}
+\definecolor{kthcolor_light}{RGB}{36,160,216}
+\definecolor{kthcolor_pink}{RGB}{216,84,151}
+\definecolor{kthcolor_green}{RGB}{176,201,43}
+\definecolor{kthcolor_gray}{RGB}{101,101,108}
+
+% Define Matlab colors
+\definecolor{matlabcolor1}{rgb}{0, 0.4470, 0.7410} 
+\definecolor{matlabcolor2}{rgb}{0.8500, 0.3250, 0.0980}
+\definecolor{matlabcolor3}{rgb}{0.9290, 0.6940, 0.1250}
+\definecolor{matlabcolor4}{rgb}{0.4940, 0.1840, 0.5560}
+\definecolor{matlabcolor5}{rgb}{0.4660, 0.6740, 0.1880}
+\definecolor{matlabcolor6}{rgb}{0.3010, 0.7450, 0.9330}
+\definecolor{matlabcolor7}{rgb}{0.6350, 0.0780, 0.1840}
+
+% Define python colors
+\definecolor{tab_blue}{HTML}{1f77b4}
+\definecolor{tab_orange}{HTML}{ff7f0e}
+\definecolor{tab_green}{HTML}{2ca02c}
+\definecolor{tab_red}{HTML}{d62728}
+\definecolor{tab_purple}{HTML}{9467bd}
+\definecolor{tab_brown}{HTML}{8c564b}
+\definecolor{tab_pink}{HTML}{e377c2}
+\definecolor{tab_gray}{HTML}{7f7f7f}
+\definecolor{tab_olive}{HTML}{bcbd22}
+\definecolor{tab_cyan}{HTML}{17becf}
+
+% Nord Colors
+\definecolor{NordDarkBlack}{HTML}{2E3440}     % nord0
+\definecolor{NordBlack}{HTML}{3B4252}         % nord1
+\definecolor{NordMediumBlack}{HTML}{434C5e}   % nord2
+\definecolor{NordBrightBlack}{HTML}{4C566A}   % nord3
+
+\definecolor{NordWhite}{HTML}{D8DEE9}         % nord4
+\definecolor{NordBrighterWhite}{HTML}{E5E9F0}         % nord5
+\definecolor{NordBrightestWhite}{HTML}{ECEFF4}   % nord6
+
+
+\definecolor{NordCyan}{HTML}{8FBCBB}          % nord7
+\definecolor{NordBrightCyan}{HTML}{88C0D0}    % nord8
+\definecolor{NordBlue}{HTML}{81A1C1}          % nord9
+\definecolor{NordBrightBlue}{HTML}{5E81AC}    % nord10
+
+\definecolor{NordRed}{HTML}{BF616A}           % nord11
+\definecolor{NordOrange}{HTML}{D08770}        % nord12
+\definecolor{NordYellow}{HTML}{EBCB8B}        % nord13
+\definecolor{NordGreen}{HTML}{A3BE8C}         % nord14
+\definecolor{NordMagenta}{HTML}{B48EAD}       % nord15
+
+
+% Other colors
+\definecolor{wheat}{rgb}{0.96, 0.87, 0.7}
+\definecolor{orangepeel}{rgb}{1.0, 0.62, 0.0}
+\definecolor{UniBlue}{RGB}{83,121,170}
+\definecolor{DarkGray}{RGB}{90,90,90}
+\definecolor{LightGray}{RGB}{150,150,150}
+\definecolor{oldTextGreen}{RGB}{115,155,15}
+\definecolor{TextGreen}{RGB}{102,153,0}
+\definecolor{oldOcean}{RGB}{23,142,189}
+\definecolor{Ocean}{RGB}{30,106,181}
+\definecolor{BG}{RGB}{215,215,215}
+\definecolor{darkred}{RGB}{204,41,0}
+
+
+%%%%% Choose text colors for both themes
+%% dark theme
+\colorlet{darkBG}{black}  %% NordDarkBlack looks nice too
+\colorlet{darknormaltext}{NordWhite}
+\colorlet{darkframetitle}{kthcolor}
+\colorlet{darkframesubtitle}{kthcolor_light}
+\colorlet{darkbottomtext}{kthcolor}
+\colorlet{darktitle}{LightGray}
+
+% light theme (white bg)
+\colorlet{lightnormaltext}{DarkGray}
+\colorlet{lightframetitle}{kthcolor}
+\colorlet{lightframesubtitle}{kthcolor_light}
+\colorlet{lightbottomtext}{kthcolor}
+\colorlet{lighttitle}{tab_gray}
+
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamersize{text margin left=10mm,text margin right=10mm}
+
+\pgfdeclareimage[height=20mm]{kthlogo}{kthgraphics/KTH-logo}
+\pgfdeclareimage[height=20mm]{kthlogo_white}{kthgraphics/KTH_Logotyp_RGB_2013_onlywhite}
+\pgfdeclareimage[height=13mm]{kthlogo_small}{kthgraphics/KTH-logo}
+\pgfdeclareimage[height=13mm]{kthlogo_small_white}{kthgraphics/KTH_Logotyp_RGB_2013_onlywhite}
+%\pgfdeclareimage[height=20mm]{saablogo}{kthgraphics/saab_1.png}
+%\pgfdeclareimage[height=13mm]{saablogo_small}{kthgraphics/saab_1.png}
+%\pgfdeclareimage[width=\paperwidth, angle=90]{flow_bottom_title}{kthgraphics/bottom_title.pdf}
+
+\newcommand{\kthlines}{%
+\begin{tikzpicture}[line width=0.5pt,rounded corners=2pt,color=kthcolor,x=2mm,y=2mm]
+  \clip (4,-1) rectangle (81, 12);
+  \draw (0,9.5) -- (15,9.5) -- (15,1.7) -- (30,1.7) -- (30,8) -- (44.5,8) -- (44.5,0) -- (55,0) -- (55,9.5)
+  -- (63,9.5) -- (63,1) -- (77,1) -- (77,8) -- (82,8) -- (82,6) -- (95,6);
+  \draw (0,8) -- (5,8) -- (5,4) -- (20,4) -- (20,9.5) -- (30.5,9.5) -- (30.5,4) -- (48,4) -- (48,7) -- (66,7)
+  -- (66,5) -- (73,5) -- (73,10) -- (84.5,10) -- (84.5,3) -- (95,3);
+  \draw (0,7) -- (7,7) -- (7,11.5) -- (11,11.5) -- (11,5) -- (18,5) -- (18,8) -- (28.5,8) -- (28.5,5)
+  -- (32,5) -- (32,7) -- (36,7) -- (36,5.5) -- (60,5.5) -- (60,11.5) -- (68,11.5) -- (68,7) -- (80,7) -- (80,11) -- (95,11);
+  \draw (0,1.7) -- (9,1.7) -- (9,0) -- (33,0) -- (33,1.7) -- (76,1.7) -- (76,0) -- (95,0);
+  \draw (0,1) -- (13,1) -- (13,7) -- (25,7) -- (25,1) -- (42,1) -- (42,10) -- (57,10) -- (57,4) -- (61.7,4)
+  -- (61.7,8) -- (71,8) -- (71,-0.5) -- (82,-0.5) -- (82,4) -- (95,4);
+\end{tikzpicture}}
+
+\newcommand{\kthlinesmulti}{%
+\begin{tikzpicture}[line width=0.5pt,rounded corners=2pt,color=kthcolor,x=2mm,y=2mm]
+  \clip (4,-1) rectangle (81, 12);
+  \draw[kthcolor_green] (0,9.5) -- (15,9.5) -- (15,1.7) -- (30,1.7) -- (30,8) -- (44.5,8) -- (44.5,0) -- (55,0) -- (55,9.5)
+  -- (63,9.5) -- (63,1) -- (77,1) -- (77,8) -- (82,8) -- (82,6) -- (95,6);
+  \draw[kthcolor_pink] (0,8) -- (5,8) -- (5,4) -- (20,4) -- (20,9.5) -- (30.5,9.5) -- (30.5,4) -- (48,4) -- (48,7) -- (66,7)
+  -- (66,5) -- (73,5) -- (73,10) -- (84.5,10) -- (84.5,3) -- (95,3);
+  \draw[kthcolor] (0,7) -- (7,7) -- (7,11.5) -- (11,11.5) -- (11,5) -- (18,5) -- (18,8) -- (28.5,8) -- (28.5,5)
+  -- (32,5) -- (32,7) -- (36,7) -- (36,5.5) -- (60,5.5) -- (60,11.5) -- (68,11.5) -- (68,7) -- (80,7) -- (80,11) -- (95,11);
+  \draw[kthcolor_gray] (0,1.7) -- (9,1.7) -- (9,0) -- (33,0) -- (33,1.7) -- (76,1.7) -- (76,0) -- (95,0);
+  \draw[kthcolor_light] (0,1) -- (13,1) -- (13,7) -- (25,7) -- (25,1) -- (42,1) -- (42,10) -- (57,10) -- (57,4) -- (61.7,4)
+  -- (61.7,8) -- (71,8) -- (71,-0.5) -- (82,-0.5) -- (82,4) -- (95,4);
+\end{tikzpicture}}
+
+\newcommand{\kthsingleline}{%
+\begin{tikzpicture}[line width=0.5pt,color=kthcolor,x=2mm,y=2mm]
+  \draw (0,0) -- (77,0);
+\end{tikzpicture}}
+
+
+
+%%%% Highlight
+\makeatletter
+\let\HL\hl
+\renewcommand\hl{%
+  \let\set@color\beamerorig@set@color
+  \let\reset@color\beamerorig@reset@color
+  \HL}
+\makeatother
+
+
+%%%% TITLE PAGE BACKGROUND
+\newcommand{\startpage}{%
+\usebackgroundtemplate{\vbox{\null
+    \vspace{5mm}\hspace{5mm}\pgfuseimage{kthlogo}\par
+\vspace{-12mm}
+  \parbox[c]{\paperwidth}{\centering\includegraphics[width=0.4\textwidth]{kthgraphics/flow_name.png}}\par
+  %\vspace{38mm}\hbox{\hspace{3mm}\kthlinesmulti}%
+  \vspace{38mm}\hbox{\hspace{3mm}\kthlines}%
+  \vspace{5mm}\hbox{\hspace{3mm}\kthsingleline}
+  %\vspace{46.5mm}\parbox[c]{\paperwidth}{\centering\pgfuseimage{kthlogo}}
+  %\vspace{0mm}
+  %\includegraphics[width=\paperwidth,angle=180]{kthgraphics/bottom_title.pdf}
+}
+    }
+\setbeamercolor{title}{fg=lighttitle}
+}
+
+%%%% TITLE PAGE BACKGROUND BLACK
+\newcommand{\startpagedark}{%
+\usebackgroundtemplate{
+\begin{tikzpicture}[remember picture,overlay]
+\shade[top color=darkBG,bottom color=darkBG]
+  ([shift={(0.0cm,0.0cm)}]current page.north west)
+     rectangle
+  ([shift={(0.0cm,0.0cm)}]current page.south east);
+\end{tikzpicture}
+
+\vbox{\null
+    \vspace{3mm}\hspace{3mm}\pgfuseimage{kthlogo_white}\par
+\vspace{-12mm}
+  \parbox[c]{\paperwidth}{\centering\includegraphics[width=0.4\textwidth]{kthgraphics/flow_name_transparent2.png}}\par
+  \vspace{38mm}\hbox{\hspace{3mm}\kthlinesmulti}%
+  %\vspace{38mm}\hbox{\hspace{3mm}\kthlines}%
+  \vspace{5mm}\hbox{\hspace{3mm}\kthsingleline}
+  %\vspace{46.5mm}\parbox[c]{\paperwidth}{\centering\pgfuseimage{kthlogo}}
+  %\vspace{0mm}
+  %\includegraphics[width=\paperwidth,angle=180]{kthgraphics/bottom_title.pdf}
+}
+    }
+    \setbeamercolor{title}{fg=darktitle}
+}
+
+%%%% TITLE PAGE BACKGROUND SAAB
+%\newcommand{\startpagesaab}{%
+%\usebackgroundtemplate{\vbox{\null
+%    \vspace{3mm}\hspace{3mm}\pgfuseimage{kthlogo}
+%    \hspace*{0.8\textwidth}\pgfuseimage{saablogo}\par
+%\vspace{-12mm}
+%  \parbox[c]{\paperwidth}{\centering\includegraphics[width=0.4\textwidth]{kthgraphics/flow_name.png}}\par
+%  \vspace{38mm}\hbox{\hspace{3mm}\kthlines}%
+%  \vspace{5mm}\hbox{\hspace{3mm}\kthsingleline}
+%  %\vspace{46.5mm}\parbox[c]{\paperwidth}{\centering\pgfuseimage{kthlogo}}
+%  %\vspace{0mm}
+%  %\includegraphics[width=\paperwidth,angle=180]{kthgraphics/bottom_title.pdf}
+%}
+%    }
+%}
+
+%%% NORMAL PAGE BACKGROUND LINE
+\newcommand{\normalpageline}{%
+\usebackgroundtemplate{
+\begin{tikzpicture}[remember picture,overlay]
+%\shade[top color=white,bottom color=white]
+%  ([shift={(0.0cm,0.0cm)}]current page.north west)
+%     rectangle
+%  ([shift={(0.0cm,0.0cm)}]current page.south east);
+  %(0,0) rectangle(\paperwidth,\paperheight);
+  \node[] at  ([shift={(10mm,-10mm)}]current page.north west) {\pgfuseimage{kthlogo_small}};
+  \node[] at  ([shift={(0mm,7mm)}]current page.south) {\kthsingleline};
+  \node[] at  ([shift={(0mm,3mm)}]current page.south) {
+\begin{tabular}{p{0.3\paperwidth}p{0.3\paperwidth} p{0.3\paperwidth}}
+ \includegraphics[width=0.1\textwidth]{kthgraphics/flow_name_transparent2.png}  &
+ \centering\small{\textcolor{lightbottomtext}{\insertshorttitle }} &  
+ %\centering{\small{\textcolor{black}{\insertshortinstitute }}} &
+ \hfill\small{\textcolor{lightbottomtext}{\insertframenumber/\insertmainframenumber}} 
+ \end{tabular}
+  };
+\end{tikzpicture}
+
+    }
+    \setbeamercolor{frametitle}{fg=lightframetitle}
+    \setbeamercolor{framesubtitle}{fg=lightframesubtitle}
+    \setbeamercolor{normal text}{fg=lightnormaltext,bg=white}
+    \usebeamercolor[fg]{normal text}
+\lstset{style=mystyle}
+}
+
+
+%%% NORMAL PAGE BACKGROUND WAVES
+\newcommand{\normalpagewaves}{%
+\usebackgroundtemplate{
+
+\begin{tikzpicture}[remember picture,overlay]
+  \node[] at  ([shift={(10mm,-10mm)}]current page.north west) {\pgfuseimage{kthlogo_small}};
+  %\node[] at  ([shift={(0mm,7mm)}]current page.south) {\kthsingleline};
+  \node[] at  ([shift={(0mm,4.5mm)}]current page.south) {\includegraphics[width=\paperwidth,angle=180]{kthgraphics/bottom_title_transparent.png}};
+  \node[] at  ([shift={(0mm,3mm)}]current page.south) {
+   \hbox{
+\begin{tabular}{p{0.3\paperwidth}p{0.3\paperwidth} p{0.3\paperwidth}}
+ %\includegraphics[width=0.1\textwidth]{kthgraphics/flow_name_transparent2.png}  &
+ %\centering\small{\textcolor{kthcolor_gray}{\insertshorttitle }} &  
+ \small{\textcolor{white}{\insertshortinstitute }} &
+ \centering{ \small{\textcolor{white}{\insertshorttitle }}} & 
+ \hfill\small{\textcolor{white}{\insertframenumber/\insertmainframenumber}} 
+ \end{tabular}
+ }
+  };
+  \node[] at  ([shift={(10mm,8mm)}]current page.south west) {\includegraphics[width=0.1\textwidth]{kthgraphics/flow_name_transparent.png}};
+\end{tikzpicture}
+
+    }
+    \setbeamercolor{frametitle}{fg=lightframetitle}
+    \setbeamercolor{framesubtitle}{fg=lightframesubtitle}
+    \setbeamercolor{normal text}{fg=lightnormaltext,bg=white}
+    \usebeamercolor[fg]{normal text}
+\lstset{style=mystyle}
+}
+
+%%% NORMAL PAGE BACKGROUND SAAB
+%\newcommand{\normalpagesaab}{%
+%\usebackgroundtemplate{\vbox{\null
+%    \vspace{3mm}
+%  \hspace{3mm}\pgfuseimage{kthlogo_small}
+%  \hspace*{0.9\textwidth}\pgfuseimage{saablogo_small}\par
+%  \vspace{\paperheight}\vspace{-28.5mm}
+%  \hspace{3mm}\includegraphics[width=0.1\textwidth]{kthgraphics/flow_name.png}\par
+%  \vspace{1mm}
+%  \begin{overpic}[width=\paperwidth, angle=180]{kthgraphics/bottom_title.pdf}
+%  %\vspace{\paperheight}\vspace{-6mm}\hbox{\hspace{3mm}\kthsingleline}
+%   \vspace{1mm}
+%   \hbox{
+%   \begin{tabular}{p{0.3\paperwidth}p{0.3\paperwidth} p{0.3\paperwidth}}
+%   \small{\textcolor{white}{\insertshorttitle }} &  
+%   \centering{\small{\textcolor{white}{\insertshortinstitute }}} &
+%   \hfill\small{\textcolor{white}{\insertframenumber/\insertmainframenumber}}
+%  
+%   \end{tabular}
+%            }
+%            \end{overpic}
+%        }
+%    }
+%}
+
+
+%%% DARK PAGE BACKGROUND WITH LINE
+\newcommand{\darkpageline}{%
+\usebackgroundtemplate{
+\begin{tikzpicture}[remember picture,overlay]
+\shade[top color=darkBG,bottom color=darkBG]
+  ([shift={(0.0cm,0.0cm)}]current page.north west)
+     rectangle
+  ([shift={(0.0cm,0.0cm)}]current page.south east);
+  %(0,0) rectangle(\paperwidth,\paperheight);
+  \node[] at  ([shift={(10mm,-10mm)}]current page.north west) {\pgfuseimage{kthlogo_small_white}};
+  \node[] at  ([shift={(0mm,7mm)}]current page.south) {\kthsingleline};
+  \node[] at  ([shift={(0mm,3mm)}]current page.south) {
+\begin{tabular}{p{0.3\paperwidth}p{0.3\paperwidth} p{0.3\paperwidth}}
+ \includegraphics[width=0.1\textwidth]{kthgraphics/flow_name_transparent2.png}  &
+ \centering\small{\textcolor{darkbottomtext}{\insertshorttitle }} &  
+ %\centering{\small{\textcolor{black}{\insertshortinstitute }}} &
+ \hfill\small{\textcolor{darkbottomtext}{\insertframenumber/\insertmainframenumber}}
+ \end{tabular}
+  };
+\end{tikzpicture}
+}
+\setbeamercolor{frametitle}{fg=darkframetitle}
+\setbeamercolor{framesubtitle}{fg=darkframesubtitle}
+\setbeamercolor{normal text}{fg=darknormaltext}
+\usebeamercolor[fg]{normal text}
+\lstset{style=mystyleblack}
+}
+
+%%% NOTE PAGE BACKGROUND
+\setbeamercolor{note page}{bg=yellow!5}
+%\setbeamertemplate{note page}{\pagecolor{yellow!5}\insertnote}\usepackage{palatino}
+
+
+%%% WHITE PAGE BACKGROUND
+\newcommand{\whitepage}{%
+\usebackgroundtemplate{
+}
+\setbeamercolor{frametitle}{fg=lightframetitle}
+\setbeamercolor{framesubtitle}{fg=lightframesubtitle}
+\setbeamercolor{normal text}{fg=lightnormaltext,bg=white}
+\usebeamercolor[fg]{normal text}
+\lstset{style=mystyle}
+}
+
+
+%%% DARK PAGE BACKGROUND
+\newcommand{\darkpage}{%
+\usebackgroundtemplate{
+\begin{tikzpicture}[remember picture,overlay]
+\shade[top color=darkBG,bottom color=darkBG]
+  ([shift={(0.0cm,0.0cm)}]current page.north west)
+     rectangle
+  ([shift={(0.0cm,0.0cm)}]current page.south east);
+\end{tikzpicture}
+}
+\setbeamercolor{frametitle}{fg=darkframetitle}
+\setbeamercolor{framesubtitle}{fg=darkframesubtitle}
+\setbeamercolor{normal text}{fg=darknormaltext}
+\usebeamercolor[fg]{normal text}
+\lstset{style=mystyleblack}
+}
+
+
+
+
+
+%%%%%%%%%%%% SOME FORMAT
+
+%\setbeamercolor{normal}{fg=DarkGray}
+%\setbeamercolor{title}{fg=UniBlue}
+%\setbeamercolor{structure}{fg=UniBlue}
+%\setbeamercolor{normal text}{fg=DarkGray,bg=white}
+%\setbeamercolor{section number projected}{bg=UniBlue,fg=white}
+
+\setbeamerfont{title}{series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\small}
+
+\setbeamertemplate{frametitle}{\vspace{4mm}\hspace{15mm}\insertframetitle\par
+    \hspace{15mm}\usebeamerfont{framesubtitle}\insertframesubtitle
+    
+}
+\setbeamercolor{alerted text}{fg=kthcolor_pink}
+\setbeamercolor{structure}{fg=kthcolor_light}
+
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamercolor{block title}{bg=kthcolor,fg=white}
+\setbeamerfont{block title}{series=\bfseries}
+\setbeamercolor{block body}{bg=kthcolor!20,fg=black}
+
+\setbeamercolor{block title alerted}{bg=kthcolor_pink,fg=white}
+\setbeamerfont{block title alerted}{series=\bfseries}
+\setbeamercolor{block body alerted}{bg=kthcolor_pink!20,fg=black}
+  
+\setbeamercolor{block title example}{bg=kthcolor_light,fg=white}
+\setbeamerfont{block title example}{series=\bfseries}
+\setbeamercolor{block body example}{bg=kthcolor_light!20,fg=black}
+
+%%%%%% ITEM FORMAT
+%\setbeamertemplate{itemize item}{\color{kthcolor}$\bullet$}
+%\setbeamertemplate{itemize subitem}{\color{kthcolor_light}$\bullet$}
+\setbeamercolor{itemize item}{fg=darkred}
+\setbeamercolor{itemize subitem}{fg=TextGreen}
+\setbeamercolor{itemize subbody}{fg=LightGray}
+
+\setbeamertemplate{itemize item}{\scriptsize\raise1.25pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
+\setbeamertemplate{itemize subitem}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\bullet$}}
+\setbeamertemplate{itemize subsubitem}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\blacksqaure$}}
+
+\setbeamertemplate{enumerate item}{\color{darkred}\Roman{enumi}}
+\setbeamertemplate{enumerate subitem}{\color{TextGreen}\roman{enumii}}
+
+%%%%%%% TITLE PAGE  
+  \defbeamertemplate*{title page}{customized}[1][]
+{\begin{center}
+  \bigskip
+  \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par
+  \usebeamerfont{subtitle}\insertsubtitle\par
+  \bigskip
+  \usebeamerfont{author}\insertauthor\par
+  \bigskip
+  \usebeamerfont{institute}\insertinstitute\par
+  \usebeamerfont{date}\insertdate\par
+ \end{center}
+}
+
+
+%%%%%%%%%%%%%%% TABLE OF CONTENTS
+
+\setbeamertemplate{section in toc}[circle]
+\setbeamerfont{section number projected}{size=\large}
+\setbeamercolor{section number projected}{bg=kthcolor,fg=white}
+\setbeamercolor{section in toc}{fg=kthcolor_gray}
+\setbeamerfont{section in toc}{size=\large}
+
+
+%%%%%%%%%%%% Setting path to Figures
+\graphicspath{{figures/}}
+
+
+%%%%%%%%%%% FOOTNOTE POSITION
+\setbeamercolor{footnote}{fg=kthcolor_gray}
+\renewcommand\footnoterule{\rule{\linewidth}{0pt}}
+\setbeamertemplate{footnote}{
+        \parindent 0em\noindent%
+        \raggedleft
+        %\raggedright
+            \usebeamercolor{footnote}\hbox to 0.8em{\hfil\insertfootnotemark}\insertfootnotetext\par%
+        \vspace{0.6cm}
+        }
+
+
+%%%% LISTINGS FORMAT
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{hlcolor},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{mystyleblack}{
+    backgroundcolor=,   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    %basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+
+%% Reynolds number
+\newcommand{\Reyn}{\operatorname{\mathit{Re}}}
+\newcommand\Rey{\mbox{\textit{Re}}}
+
+%% Highlighting color
+\definecolor{hlcolor}{rgb}{0.95, 0.95, 0.92} 
+\sethlcolor{hlcolor}
+\let\OldTexttt\texttt
+\renewcommand{\texttt}[1]{\OldTexttt{\hl{#1}}}
+
+% move title to center
+% \makeatletter
+% \setbeamertemplate{frametitle}{
+%     \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+%     \@tempdima=\textwidth%
+%     \advance\@tempdima by\beamer@leftmargin%
+%     \advance\@tempdima by\beamer@rightmargin%
+%     \advance\@tempdima by -23mm%
+%     \vskip -1mm%
+%     \begin{beamercolorbox}[sep=0.3cm,left,wd=\the\@tempdima]{frametitle}
+%         \usebeamerfont{frametitle}%
+%         \vbox{}\vskip+1ex%
+%         \if@tempswa\else\csname beamer@ftecenter\endcsname\fi%
+%         \strut\insertframetitle\strut\par%
+%         {%
+%             \ifx\insertframesubtitle\@empty%
+%             \else%
+%             {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+%             \fi
+%         }%
+%         \vskip-1ex%
+%         \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+%     \end{beamercolorbox}%
+% }
+% \makeatother
