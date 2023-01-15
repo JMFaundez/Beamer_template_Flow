@@ -1,0 +1,14 @@
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.snm
+*.vrb
+*.nav
+kthgraphics/*-eps-converted-to.pdf
+impulse_images/*-eps-converted-to.pdf
