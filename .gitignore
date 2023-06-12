@@ -10,5 +10,6 @@
 *.snm
 *.vrb
 *.nav
+Example.pdf
 kthgraphics/*-eps-converted-to.pdf
 impulse_images/*-eps-converted-to.pdf
