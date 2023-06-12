@@ -141,7 +141,39 @@
   \draw (0,0) -- (77,0);
 \end{tikzpicture}}
 
-
+%------------------------------------------------------------------------------
+% Coordinate system for the page:
+%
+% -------------------------
+% |(0,1)             (1,1)|
+% |                       |
+% |       (0.5,0.5)       |
+% |                       |
+% |(0,0)             (1,0)|
+% -------------------------
+%
+% invoke by:
+% \node[nodeOptions] (nodeName) at (page cs:xNode,yNode) {nodeContents};
+%
+\makeatletter
+\def\parsecomma#1,#2\endparsecomma{\def\page@x{#1}\def\page@y{#2}}
+\tikzdeclarecoordinatesystem{page}{
+    \parsecomma#1\endparsecomma
+    % Save the lower left corner
+    \pgfpointanchor{current page}{south west}
+    \pgf@xa=\pgf@x%
+    \pgf@ya=\pgf@y%
+    % Save the upper right corner
+    \pgfpointanchor{current page}{north east}
+    \pgf@xb=\pgf@x%
+    \pgf@yb=\pgf@y%
+    % Transform to the correct placement
+    \pgfmathparse{(\pgf@xb-\pgf@xa)*\page@x+\pgf@xa}
+    \expandafter\pgf@x\expandafter=\pgfmathresult pt
+    \pgfmathparse{(\pgf@yb-\pgf@ya)*\page@y+\pgf@ya}
+    \expandafter\pgf@y\expandafter=\pgfmathresult pt
+}
+\makeatother
 
 %%%% Highlight
 \makeatletter

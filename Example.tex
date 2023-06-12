@@ -24,8 +24,8 @@
 % Multirow tables
 \usepackage{multirow}
 
-% So pgfplot doesnt complain
-\pgfplotsset{compat=1.18}
+% So pgfplot doesnt complain (overleaf)
+%\pgfplotsset{compat=1.18}
 
 % To draw a grid on top of your images
 \usetikzlibrary{calc}
@@ -34,6 +34,16 @@
 \makeatletter
 \let\zeropad\@anim@pad
 \makeatother
+
+% Uncomment this if you want the table of contents to pop up at the 
+% beginning of each section (you can do the same with subsections):
+%\AtBeginSection[]
+%{
+%  \begin{frame}<beamer>{Outline}
+%    \tableofcontents[currentsection]
+%  \end{frame} \addtocounter{framenumber}{-1}
+%}
+
 
 \title[beamer stuff]{Using beamer}
 \author{Josilio}
@@ -356,6 +366,47 @@ for i in range(a):
             \end{tikzpicture}
             \end{column}
             \end{columns}
+\end{frame}
+
+
+\begin{frame}[t]{Frame coordinate system}
+	{Absolute positioning of images and sketches}
+	%
+	% Coordinate system for the page:
+	%
+	% -------------------------
+	% |(0,1)             (1,1)|
+	% |                       |
+	% |       (0.5,0.5)       |
+	% |                       |
+	% |(0,0)             (1,0)|
+	% -------------------------
+	%
+	% invoke by:
+	% \node[nodeOptions] (nodeName) at (page cs:xNode,yNode) {nodeContents};
+
+	\begin{tikzpicture}[remember picture,overlay]
+		\node (sw) at (page cs:0,0) {+}; % bottom left
+		\node (se) at (page cs:1,0) {+}; % bottom right
+		\node (ne) at (page cs:1,1) {+}; % top    right
+		\node (nw) at (page cs:0,1) {+}; % top    left
+
+		\draw (sw) -- (se) -- (ne) -- (nw) -- cycle; % outer rectangle
+		\draw (sw) -- (ne); % diagonals
+		\draw (se) -- (nw); % diagonals
+		%\draw[red,thick] (sw) -- (se);
+		%\draw[green,thick] (se) -- (ne);
+
+		\node (ce) at (page cs:0.5,0.5) {+}; % center
+
+		\node (image) at (page cs:0.75,0.75) {% 
+			\includegraphics[width=.105\paperwidth]{kthgraphics/KTH-logo.pdf}%
+		};
+		\node (image) at (page cs:0.15,0.85) {% 
+			\includegraphics[width=.105\paperwidth]{kthgraphics/KTH-logo.pdf}%
+		};
+	\end{tikzpicture}
+    
 \end{frame}
 
 
