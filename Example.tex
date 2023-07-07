@@ -132,7 +132,7 @@ A block
 \section{Colors and symbols}
 \begin{frame}{\insertsection}
     \begin{columns}[t]
-        \begin{column}{0.33\textwidth}
+        \begin{column}{0.24\textwidth}
             \underline{KTH colors}
             \begin{itemize}
                 \item \textcolor{kthcolor}{kthcolor}
@@ -142,7 +142,7 @@ A block
                 \item \textcolor{kthcolor_gray}{kthcolor\_gray}
             \end{itemize}
         \end{column}
-        \begin{column}{0.33\textwidth}
+        \begin{column}{0.24\textwidth}
             \underline{Matlab colors}
             \begin{itemize}
                 \item \textcolor{matlabcolor1}{matlabcolor1}
@@ -154,7 +154,7 @@ A block
                 \item \textcolor{matlabcolor7}{matlabcolor7}
             \end{itemize}
         \end{column}
-        \begin{column}{0.33\textwidth}
+        \begin{column}{0.24\textwidth}
             \underline{Python colors}
             \begin{itemize}
             \item \textcolor{tab_blue}{tab\_blue}
@@ -167,6 +167,18 @@ A block
             \item \textcolor{tab_gray}{tab\_gray}
             \item \textcolor{tab_olive}{tab\_olive}
             \item \textcolor{tab_cyan}{tab\_cyan}
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.24\textwidth}
+            \underline{Qualitative colors \href{https://personal.sron.nl/~pault/}{[Link]}}
+            \begin{itemize}
+            \item \textcolor{BqualBlue}{BqualBlue}
+            \item \textcolor{BqualCyan}{BqualBlue}
+            \item \textcolor{BqualGreen}{BqualGreen}
+            \item \textcolor{BqualYellow}{BqualYellow}
+            \item \textcolor{BqualRed}{BqualRed}
+            \item \textcolor{BqualPurple}{BqualPurple}
+            \item \textcolor{BqualGrey}{BqualGray}
             \end{itemize}
         \end{column}
     \end{columns}
@@ -384,7 +396,7 @@ for i in range(a):
 	%
 	% invoke by:
 	% \node[nodeOptions] (nodeName) at (page cs:xNode,yNode) {nodeContents};
-
+    In case you want to draw over the slide
 	\begin{tikzpicture}[remember picture,overlay]
 		\node (sw) at (page cs:0,0) {+}; % bottom left
 		\node (se) at (page cs:1,0) {+}; % bottom right
@@ -402,7 +414,7 @@ for i in range(a):
 		\node (image) at (page cs:0.75,0.75) {% 
 			\includegraphics[width=.105\paperwidth]{kthgraphics/KTH-logo.pdf}%
 		};
-		\node (image) at (page cs:0.15,0.85) {% 
+		\node (image) at (page cs:0.15,0.55) {% 
 			\includegraphics[width=.105\paperwidth]{kthgraphics/KTH-logo.pdf}%
 		};
 	\end{tikzpicture}
