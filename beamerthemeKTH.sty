@@ -15,8 +15,17 @@
 % to create plots
 \usepackage{pgfplots}
 
-% Define KTH Colors
-\definecolor{kthcolor}{RGB}{25,84,166}
+
+% Define KTH Colors (new)
+\definecolor{kthcolor}{RGB}{0,71,145}
+\definecolor{kthcolor_navy}{RGB}{0,0,97}
+\definecolor{kthcolor_sand}{RGB}{235,229,224}
+\definecolor{kthcolor_skyblue}{RGB}{98,152,210}
+\definecolor{kthcolor_lightblue}{RGB}{222,240,255}
+\definecolor{kthcolor_digitalblue}{RGB}{0,41,237}
+
+% Define KTH Colors (old)
+%\definecolor{kthcolor}{RGB}{25,84,166}
 \definecolor{kthcolor_light}{RGB}{36,160,216}
 \definecolor{kthcolor_pink}{RGB}{216,84,151}
 \definecolor{kthcolor_green}{RGB}{176,201,43}
@@ -76,14 +85,6 @@
 
 
 
-
-
-
-
-
-
-
-
 % Other colors
 \definecolor{wheat}{rgb}{0.96, 0.87, 0.7}
 \definecolor{orangepeel}{rgb}{1.0, 0.62, 0.0}
@@ -109,25 +110,25 @@
 
 % light theme (white bg)
 \colorlet{lightnormaltext}{DarkGray}
-\colorlet{lightframetitle}{kthcolor}
+\colorlet{lightframetitle}{kthcolor_navy}
 \colorlet{lightframesubtitle}{kthcolor_light}
-\colorlet{lightbottomtext}{kthcolor}
+\colorlet{lightbottomtext}{kthcolor_navy}
 \colorlet{lighttitle}{tab_gray}
 
 
 \setbeamertemplate{navigation symbols}{}
 \setbeamersize{text margin left=10mm,text margin right=10mm}
 
-\pgfdeclareimage[height=20mm]{kthlogo}{kthgraphics/KTH-logo}
-\pgfdeclareimage[height=20mm]{kthlogo_white}{kthgraphics/KTH_Logotyp_RGB_2013_onlywhite}
-\pgfdeclareimage[height=13mm]{kthlogo_small}{kthgraphics/KTH-logo}
-\pgfdeclareimage[height=13mm]{kthlogo_small_white}{kthgraphics/KTH_Logotyp_RGB_2013_onlywhite}
+\pgfdeclareimage[height=20mm]{kthlogo}{kthgraphics/KTH_logo_RGB_bla}
+\pgfdeclareimage[height=20mm]{kthlogo_white}{kthgraphics/KTH_logo_RGB_vit}
+\pgfdeclareimage[height=13mm]{kthlogo_small}{kthgraphics/KTH_logo_RGB_bla}
+\pgfdeclareimage[height=13mm]{kthlogo_small_white}{kthgraphics/KTH_logo_RGB_vit}
 %\pgfdeclareimage[height=20mm]{saablogo}{kthgraphics/saab_1.png}
 %\pgfdeclareimage[height=13mm]{saablogo_small}{kthgraphics/saab_1.png}
 %\pgfdeclareimage[width=\paperwidth, angle=90]{flow_bottom_title}{kthgraphics/bottom_title.pdf}
 
 \newcommand{\kthlines}{%
-\begin{tikzpicture}[line width=0.5pt,rounded corners=2pt,color=kthcolor,x=2mm,y=2mm]
+\begin{tikzpicture}[line width=0.5pt,rounded corners=2pt,color=kthcolor_navy,x=2mm,y=2mm]
   \clip (4,-1) rectangle (81, 12);
   \draw (0,9.5) -- (15,9.5) -- (15,1.7) -- (30,1.7) -- (30,8) -- (44.5,8) -- (44.5,0) -- (55,0) -- (55,9.5)
   -- (63,9.5) -- (63,1) -- (77,1) -- (77,8) -- (82,8) -- (82,6) -- (95,6);
@@ -141,7 +142,7 @@
 \end{tikzpicture}}
 
 \newcommand{\kthlinesmulti}{%
-\begin{tikzpicture}[line width=0.5pt,rounded corners=2pt,color=kthcolor,x=2mm,y=2mm]
+\begin{tikzpicture}[line width=0.5pt,rounded corners=2pt,color=kthcolor_navy,x=2mm,y=2mm]
   \clip (4,-1) rectangle (81, 12);
   \draw[kthcolor_green] (0,9.5) -- (15,9.5) -- (15,1.7) -- (30,1.7) -- (30,8) -- (44.5,8) -- (44.5,0) -- (55,0) -- (55,9.5)
   -- (63,9.5) -- (63,1) -- (77,1) -- (77,8) -- (82,8) -- (82,6) -- (95,6);
@@ -202,6 +203,20 @@
   \HL}
 \makeatother
 
+%%%% TITLE PAGE BACKGROUND NEW
+\newcommand{\startpagenew}{%
+\usebackgroundtemplate{
+
+\begin{tikzpicture}[remember picture,overlay]
+  \node[] at  ([shift={(0.5\paperwidth,-0mm)}]current page.west) {\includegraphics[width=\paperwidth]{kthgraphics/Linjemonster_KTH-bla_RGB_16x9.png}};
+  %\node[] at  ([shift={(0mm,7mm)}]current page.south) {\kthsingleline};
+  %\node[] at  ([shift={(0mm,3.0mm)}]current page.south) {\includegraphics[width=\paperwidth,angle=180]{kthgraphics/bottom_title_transparent.png}};
+  %\node[] at  ([shift={(8mm,6.0mm)}]current page.south west) {\includegraphics[width=0.08\textwidth]{kthgraphics/flow_name_transparent.png}};
+\end{tikzpicture}
+
+    }
+  \setbeamercolor{title}{fg=lighttitle}
+}
 
 %%%% TITLE PAGE BACKGROUND
 \newcommand{\startpage}{%
@@ -217,7 +232,6 @@
   %\includegraphics[width=\paperwidth,angle=180]{kthgraphics/bottom_title.pdf}
 }
     }
-\setbeamercolor{title}{fg=lighttitle}
 }
 
 %%%% TITLE PAGE BACKGROUND BLACK
@@ -298,8 +312,8 @@
 \begin{tikzpicture}[remember picture,overlay]
   \node[] at  ([shift={(10mm,-10mm)}]current page.north west) {\pgfuseimage{kthlogo_small}};
   %\node[] at  ([shift={(0mm,7mm)}]current page.south) {\kthsingleline};
-  \node[] at  ([shift={(0mm,4.5mm)}]current page.south) {\includegraphics[width=\paperwidth,angle=180]{kthgraphics/bottom_title_transparent.png}};
-  \node[] at  ([shift={(0mm,3mm)}]current page.south) {
+  \node[] at  ([shift={(0mm,3.0mm)}]current page.south) {\includegraphics[width=\paperwidth,angle=180]{kthgraphics/bottom_title_transparent.png}};
+  \node[] at  ([shift={(0mm,2mm)}]current page.south) {
    \hbox{
 \begin{tabular}{p{0.3\paperwidth}p{0.3\paperwidth} p{0.3\paperwidth}}
  %\includegraphics[width=0.1\textwidth]{kthgraphics/flow_name_transparent2.png}  &
@@ -310,7 +324,7 @@
  \end{tabular}
  }
   };
-  \node[] at  ([shift={(10mm,8mm)}]current page.south west) {\includegraphics[width=0.1\textwidth]{kthgraphics/flow_name_transparent.png}};
+  \node[] at  ([shift={(8mm,6.0mm)}]current page.south west) {\includegraphics[width=0.08\textwidth]{kthgraphics/flow_name_transparent.png}};
 \end{tikzpicture}
 
     }
@@ -433,23 +447,23 @@
 
 
 \setbeamertemplate{blocks}[rounded][shadow=true]
-\setbeamercolor{block title}{bg=kthcolor,fg=white}
+\setbeamercolor{block title}{bg=kthcolor_navy,fg=white}
 \setbeamerfont{block title}{series=\bfseries}
-\setbeamercolor{block body}{bg=kthcolor!20,fg=black}
+\setbeamercolor{block body}{bg=kthcolor_navy!20,fg=black}
 
 \setbeamercolor{block title alerted}{bg=kthcolor_pink,fg=white}
 \setbeamerfont{block title alerted}{series=\bfseries}
 \setbeamercolor{block body alerted}{bg=kthcolor_pink!20,fg=black}
   
-\setbeamercolor{block title example}{bg=kthcolor_light,fg=white}
+\setbeamercolor{block title example}{bg=kthcolor_skyblue,fg=white}
 \setbeamerfont{block title example}{series=\bfseries}
-\setbeamercolor{block body example}{bg=kthcolor_light!20,fg=black}
+\setbeamercolor{block body example}{bg=kthcolor_skyblue!20,fg=black}
 
 %%%%%% ITEM FORMAT
 %\setbeamertemplate{itemize item}{\color{kthcolor}$\bullet$}
 %\setbeamertemplate{itemize subitem}{\color{kthcolor_light}$\bullet$}
-\setbeamercolor{itemize item}{fg=darkred}
-\setbeamercolor{itemize subitem}{fg=TextGreen}
+\setbeamercolor{itemize item}{fg=kthcolor}
+\setbeamercolor{itemize subitem}{fg=kthcolor_skyblue}
 \setbeamercolor{itemize subbody}{fg=LightGray}
 
 \setbeamertemplate{itemize item}{\scriptsize\raise1.25pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
@@ -478,7 +492,7 @@
 
 \setbeamertemplate{section in toc}[circle]
 \setbeamerfont{section number projected}{size=\large}
-\setbeamercolor{section number projected}{bg=kthcolor,fg=white}
+\setbeamercolor{section number projected}{bg=kthcolor_navy,fg=white}
 \setbeamercolor{section in toc}{fg=kthcolor_gray}
 \setbeamerfont{section in toc}{size=\large}
 
