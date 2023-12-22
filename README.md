@@ -1,9 +1,11 @@
 Original from: https://intra.kth.se/en/administration/kommunikation/mallar/latexmallar-1.868960
-
+ And some ideas from : https://github.com/eX-Mech/flowbeamer/tree/master
 # KTH FLOW presentation
 
 The colors used are the ones from KTH:
-https://intra.kth.se/en/administration/kommunikation/grafiskprofil/profilfarger-1.845077
+https://intra.kth.se/en/administration/kommunikation/varumarke/grafiskprofil
+
+The lines in the title page are also from that link.
 
 Check `Example.tex` for an example presentation and some tips on how to use it.
 

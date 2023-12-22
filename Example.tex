@@ -18,6 +18,7 @@
 
 %Load theme
 \usetheme{KTH}
+%\usefonttheme{serif}
 % remove this if using XeLaTeX or LuaLaTeX
 %\usepackage[utf8]{inputenc}
 
@@ -53,7 +54,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\startpagenew
+\startpage
 \begin{frame}[noframenumbering]
 
   \maketitle
@@ -71,7 +72,7 @@
 
 \section{General}
 \subsection{Random stuff}
-\begin{frame}[fragile]{\insertsection}
+\begin{frame}[fragile]{\insertsection}{test}
     \begin{itemize}
     \item You can \hl{highlight} text with \verb|\hl{}|. But I generally save the highlighting for \verb|\texttt{}|
     \item You can also \verb|\alert{}| some \alert{text}
@@ -125,23 +126,56 @@ A block
 \end{frame}
 
 
-
-
-
-
 \section{Colors and symbols}
-\begin{frame}{\insertsection}
+\begin{frame}{\insertsection}{KTH colors}
     \begin{columns}[t]
-        \begin{column}{0.24\textwidth}
-            \underline{KTH colors}
+        \begin{column}{0.3\textwidth}
+            \underline{Primary}
             \begin{itemize}
                 \item \textcolor{kthcolor}{kthcolor}
-                \item \textcolor{kthcolor_light}{kthcolor\_light}
-                \item \textcolor{kthcolor_green}{kthcolor\_green}
-                \item \textcolor{kthcolor_pink}{kthcolor\_pink}
-                \item \textcolor{kthcolor_gray}{kthcolor\_gray}
+                \item \textcolor{kthcolor_navy}{kthcolor\_navy}
+                \item \textcolor{kthcolor_sand}{kthcolor\_sand}
+                \item \textcolor{kthcolor_skyblue}{kthcolor\_skyblue}
+                \item \textcolor{kthcolor_lightblue}{kthcolor\_lightblue}
+                \item \textcolor{kthcolor_digitalblue}{kthcolor\_digitalblue}
             \end{itemize}
         \end{column}
+        \begin{column}{0.28\textwidth}
+            \underline{Functional Dark}
+            \begin{itemize}
+                \item \textcolor{kth_darkgreen}{kth\_darkgreen}
+                \item \textcolor{kth_darkturquoise}{kth\_darkturquoise}
+                \item \textcolor{kth_darkbrick}{kth\_darkbrick}
+                \item \textcolor{kth_darkyellow}{kth\_darkyellow}
+                \item \textcolor{kth_darkgray}{kth\_darkgray}
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.24\textwidth}
+            \underline{Functional}
+            \begin{itemize}
+                \item \textcolor{kth_green}{kth\_green}
+                \item \textcolor{kth_turquoise}{kth\_turquoise}
+                \item \textcolor{kth_brick}{kth\_brick}
+                \item \textcolor{kth_yellow}{kth\_yellow}
+                \item \textcolor{kth_gray}{kth\_gray}
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \underline{Functional light}
+            \begin{itemize}
+                \item \textcolor{kth_lightgreen}{kth\_lightgreen}
+                \item \textcolor{kth_lightturquoise}{kth\_lightturquoise}
+                \item \textcolor{kth_lightbrick}{kth\_lightbrick}
+                \item \textcolor{kth_lightyellow}{kth\_lightyellow}
+                \item \textcolor{kth_lightgray}{kth\_lightgray}
+            \end{itemize}
+        \end{column}
+    \end{columns}
+    
+\end{frame}
+
+\begin{frame}{\insertsection}
+    \begin{columns}[t]
         \begin{column}{0.24\textwidth}
             \underline{Matlab colors}
             \begin{itemize}
@@ -196,7 +230,7 @@ These two packages have icons and symbols that can be used as text. In the links
        \begin{itemize}
            \item \faHeart
            \item \textcolor{kthcolor}{\faThumbsOUp}
-           \item \textcolor{kthcolor_green}{\faLeaf} \faLeaf
+           \item \textcolor{kth_green}{\faLeaf} \faLeaf
            \item \textcolor{kthcolor_pink}{\faBicycle}
            \item \faInstagram
        \end{itemize}
@@ -285,10 +319,8 @@ for i in range(a):
 
 
 
-
-
 \darkpageline
-\begin{frame}{\insertsection}
+\begin{frame}{\insertsection}{subtitle}
     Images with transparent background look cool too
     \begin{animateinline}[poster=last,autoplay,autopause,loop]{15}
     \multiframe{20}{i=0+1}{
@@ -311,7 +343,7 @@ for i in range(a):
 
 
 \normalpagewaves
-\begin{frame}[fragile]{\insertsection}
+\begin{frame}[fragile]{\insertsection}{subtitle}
     \begin{itemize}
         \item Or using:
         \begin{lstlisting}[language=tcl,numbers=none]
@@ -320,6 +352,43 @@ for i in range(a):
     \end{itemize}
 \end{frame}
 
+\normalpagelinenavy
+\begin{frame}[fragile]{\insertsection}
+    \begin{itemize}
+        \item Or the navy version: 
+        \begin{lstlisting}[language=tcl,numbers=none]
+\normalpagelinenavy\end{lstlisting}
+    \end{itemize}
+\end{frame}
+
+\normalpagewavesnavy
+\begin{frame}[fragile]{\insertsection}
+    \begin{itemize}
+        \item Or the navy version of waves: 
+        \begin{lstlisting}[language=tcl,numbers=none]
+\normalpagewavesnavy\end{lstlisting}
+    \end{itemize}
+\end{frame}
+
+\startpagenavy
+\begin{frame}[noframenumbering]
+
+  \maketitle
+
+\end{frame}
+\normalpagewavesnavy
+\begin{frame}{\insertsection} {with different TOC and block}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \tableofcontents
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{block}{different block}
+                text 
+            \end{block}
+        \end{column}
+    \end{columns}
+\end{frame}
 
 
 \whitepage
@@ -360,7 +429,7 @@ for i in range(a):
             %% Include the image in a node
             \node [
                 above right,
-                inner sep = 0,opacity=1,] (image) at (0,0) {\includegraphics[width=0.8\textwidth]{kthgraphics/KTH-logo.pdf}};
+                inner sep = 0,opacity=1,] (image) at (0,0) {\includegraphics[width=0.8\textwidth]{kthgraphics/KTH-logo_bla.pdf}};
             %% Create scope with normalized axes
             \begin{scope}[
                 x={($0.1*(image.south east)$)},
@@ -371,9 +440,9 @@ for i in range(a):
                 \foreach \x in {0,1,...,10} { \node [below] at (\x,0) {\x}; }
                 \foreach \y in {0,1,...,10} { \node [left] at (0,\y) {\y};}
             %% Your drawings
-                \node[rotate=-90] at (8,8) {\textcolor{kthcolor_pink}{\faHeart}};
-                \draw[kthcolor_green, very thick] (1,0.5) -- (9,1);
-                \draw[kthcolor_light, very thick] (1.5,1.5) rectangle (8.5,8.5);
+                \node[rotate=-90] at (8,8) {\textcolor{kth_brick}{\faHeart}};
+                \draw[kth_green, very thick] (1,0.5) -- (9,1);
+                \draw[kthcolor_skyblue, very thick] (1.5,1.5) rectangle (8.5,8.5);
             \end{scope}
             \end{tikzpicture}
             \end{column}
@@ -412,10 +481,10 @@ for i in range(a):
 		\node (ce) at (page cs:0.5,0.5) {+}; % center
 
 		\node (image) at (page cs:0.75,0.75) {% 
-			\includegraphics[width=.105\paperwidth]{kthgraphics/KTH-logo.pdf}%
+			\includegraphics[width=.105\paperwidth]{kthgraphics/KTH-logo_bla.pdf}%
 		};
 		\node (image) at (page cs:0.15,0.55) {% 
-			\includegraphics[width=.105\paperwidth]{kthgraphics/KTH-logo.pdf}%
+			\includegraphics[width=.105\paperwidth]{kthgraphics/KTH-logo_bla.pdf}%
 		};
 	\end{tikzpicture}
     
