@@ -156,7 +156,7 @@
 \end{tikzpicture}}
 
 \newcommand{\kthsingleline}{%
-\begin{tikzpicture}[line width=0.5pt,color=kthcolor,x=2mm,y=2mm]
+\begin{tikzpicture}[line width=0.5pt,color=kthcolor_navy,x=2mm,y=2mm]
   \draw (0,0) -- (77,0);
 \end{tikzpicture}}
 
@@ -208,7 +208,10 @@
 \usebackgroundtemplate{
 
 \begin{tikzpicture}[remember picture,overlay]
-  \node[] at  ([shift={(0.5\paperwidth,-0mm)}]current page.west) {\includegraphics[width=\paperwidth]{kthgraphics/Linjemonster_KTH-bla_RGB_16x9.png}};
+  \node[] at  ([shift={(15mm,-15mm)}]current page.north west) {\pgfuseimage{kthlogo}};
+  \node[] at  ([shift={(0.5\paperwidth,-0mm)}]current page.west) {\includegraphics[width=\paperwidth,angle=0]{kthgraphics/Linjemonster_marinbla_RGB_16x9_BR.png}};
+  \node[] at  ([shift={(0.5\paperwidth,-0mm)}]current page.west) {\scalebox{1}[-1]{\includegraphics[width=\paperwidth,angle=0]{kthgraphics/Linjemonster_marinbla_RGB_16x9_TL.png}}};
+  \node[] at  ([shift={(0.5\paperwidth,22mm)}]current page.west) {\includegraphics[width=0.35\paperwidth,angle=0]{kthgraphics/flow_name_transparent_marinbla.png}};
   %\node[] at  ([shift={(0mm,7mm)}]current page.south) {\kthsingleline};
   %\node[] at  ([shift={(0mm,3.0mm)}]current page.south) {\includegraphics[width=\paperwidth,angle=180]{kthgraphics/bottom_title_transparent.png}};
   %\node[] at  ([shift={(8mm,6.0mm)}]current page.south west) {\includegraphics[width=0.08\textwidth]{kthgraphics/flow_name_transparent.png}};
@@ -288,7 +291,7 @@
   \node[] at  ([shift={(0mm,7mm)}]current page.south) {\kthsingleline};
   \node[] at  ([shift={(0mm,3mm)}]current page.south) {
 \begin{tabular}{p{0.3\paperwidth}p{0.3\paperwidth} p{0.3\paperwidth}}
- \includegraphics[width=0.1\textwidth]{kthgraphics/flow_name_transparent2.png}  &
+ \includegraphics[width=0.1\textwidth]{kthgraphics/flow_name_transparent_KTHbla.png}  &
  \centering\small{\textcolor{lightbottomtext}{\insertshorttitle }} &  
  %\centering{\small{\textcolor{black}{\insertshortinstitute }}} &
  \hfill\small{\textcolor{lightbottomtext}{\insertframenumber/\insertmainframenumber}} 
@@ -312,7 +315,7 @@
 \begin{tikzpicture}[remember picture,overlay]
   \node[] at  ([shift={(10mm,-10mm)}]current page.north west) {\pgfuseimage{kthlogo_small}};
   %\node[] at  ([shift={(0mm,7mm)}]current page.south) {\kthsingleline};
-  \node[] at  ([shift={(0mm,3.0mm)}]current page.south) {\includegraphics[width=\paperwidth,angle=180]{kthgraphics/bottom_title_transparent.png}};
+  \node[] at  ([shift={(0mm,3.0mm)}]current page.south) {\includegraphics[width=\paperwidth,angle=180]{kthgraphics/bottom_title_transparent_marinbla.png}};
   \node[] at  ([shift={(0mm,2mm)}]current page.south) {
    \hbox{
 \begin{tabular}{p{0.3\paperwidth}p{0.3\paperwidth} p{0.3\paperwidth}}
@@ -324,7 +327,7 @@
  \end{tabular}
  }
   };
-  \node[] at  ([shift={(8mm,6.0mm)}]current page.south west) {\includegraphics[width=0.08\textwidth]{kthgraphics/flow_name_transparent.png}};
+  \node[] at  ([shift={(8mm,7.0mm)}]current page.south west) {\includegraphics[width=0.08\textwidth]{kthgraphics/flow_name_transparent_kthbla.png}};
 \end{tikzpicture}
 
     }
@@ -462,7 +465,7 @@
 %%%%%% ITEM FORMAT
 %\setbeamertemplate{itemize item}{\color{kthcolor}$\bullet$}
 %\setbeamertemplate{itemize subitem}{\color{kthcolor_light}$\bullet$}
-\setbeamercolor{itemize item}{fg=kthcolor}
+\setbeamercolor{itemize item}{fg=kthcolor_navy}
 \setbeamercolor{itemize subitem}{fg=kthcolor_skyblue}
 \setbeamercolor{itemize subbody}{fg=LightGray}
 
@@ -476,7 +479,8 @@
 %%%%%%% TITLE PAGE  
   \defbeamertemplate*{title page}{customized}[1][]
 {\begin{center}
-  \bigskip
+  %\bigskip
+  \vspace*{1cm}
   \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par
   \usebeamerfont{subtitle}\insertsubtitle\par
   \bigskip
