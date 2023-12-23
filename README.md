@@ -4,8 +4,7 @@ Original from: https://intra.kth.se/en/administration/kommunikation/mallar/latex
 
 # KTH FLOW presentation (absolutely unofficial)
 
-
-This is not intended to be an official template, a complete guide, or a very neat latex code. I just put together some things that I've found useful while working with beamer and setting up my presentations.
+This is not intended to be an official template, a complete guide, or a very neat latex code. I just put together some things that I've found useful while working with beamer and setting up my presentations. 
 
 The colors used are the ones from KTH: (2023)
 https://intra.kth.se/en/administration/kommunikation/varumarke/grafiskprofil
