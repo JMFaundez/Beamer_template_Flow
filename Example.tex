@@ -44,7 +44,12 @@
 %    \tableofcontents[currentsection]
 %  \end{frame} \addtocounter{framenumber}{-1}
 %}
-
+% or if you want the transition slide with the section name
+\AtBeginSection[]
+{
+    \transitionpage{\insertsection}
+    \normalpageline
+}
 
 \title[beamer stuff]{Using beamer}
 \author{Josilio}
@@ -127,7 +132,7 @@ A block
 
 
 \section{Colors and symbols}
-\transitionpage{\insertsection}
+%\transitionpage{\insertsection}
 \normalpageline
 \begin{frame}{\insertsection}{KTH colors}
     \begin{columns}[t]
@@ -427,6 +432,10 @@ for i in range(a):
     \end{itemize}
 \end{frame}
 
+
+\transitionpagehbl{another transition slide}
+\transitionpagenavy{and another one}
+\transitionpagenavydbl{and another one}
 
 \normalpageline
 \section{TIKZ it!}

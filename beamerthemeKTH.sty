@@ -483,8 +483,9 @@
 \lstset{style=mystyleblack}
 }
 
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Transition slides
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\transitionpage}[1]{%
 \usebackgroundtemplate{
 \begin{tikzpicture}[remember picture,overlay]
@@ -506,6 +507,71 @@
 \end{frame}
 }
 
+
+\newcommand{\transitionpagehbl}[1]{%
+\usebackgroundtemplate{
+\begin{tikzpicture}[remember picture,overlay]
+\shade[top color=kthcolor,bottom color=kthcolor]
+  ([shift={(0.0cm,0.0cm)}]current page.north west)
+     rectangle
+  ([shift={(0.0cm,0.0cm)}]current page.south east);
+  \node[] at  ([shift={(0.5\paperwidth,-0mm)}]current page.west) {\includegraphics[width=\paperwidth,angle=0]{kthgraphics/Linjemonster_himmelsbla_RGB_16x9_BR.png}};
+  \node[] at  ([shift={(0.5\paperwidth,-0mm)}]current page.west) {\scalebox{1}[-1]{\includegraphics[width=\paperwidth,angle=0]{kthgraphics/Linjemonster_himmelsbla_RGB_16x9_TL.png}}};
+  \node[] at  ([shift={(0.5\paperwidth,-0mm)}]current page.west) {\scalebox{-1}[-1]{\includegraphics[width=\paperwidth,angle=0]{kthgraphics/Linjemonster_himmelsbla_RGB_16x9_BL.png}}};
+  \node[anchor=center] at (current page.center) {
+    \textbf{\Huge{\color{white} #1}}
+  };
+\end{tikzpicture}
+}
+\begin{frame}[noframenumbering]
+    %\centering
+    %\textbf{\Huge{\color{white} #1}}
+\end{frame}
+}
+
+
+
+\newcommand{\transitionpagenavy}[1]{%
+\usebackgroundtemplate{
+\begin{tikzpicture}[remember picture,overlay]
+\shade[top color=kthcolor_navy,bottom color=kthcolor_navy]
+  ([shift={(0.0cm,0.0cm)}]current page.north west)
+     rectangle
+  ([shift={(0.0cm,0.0cm)}]current page.south east);
+  \node[] at  ([shift={(0.5\paperwidth,-0mm)}]current page.west) {\includegraphics[width=\paperwidth,angle=0]{kthgraphics/Linjemonster_himmelsbla_RGB_16x9_BR.png}};
+  \node[] at  ([shift={(0.5\paperwidth,-0mm)}]current page.west) {\scalebox{1}[-1]{\includegraphics[width=\paperwidth,angle=0]{kthgraphics/Linjemonster_himmelsbla_RGB_16x9_TL.png}}};
+  \node[] at  ([shift={(0.5\paperwidth,-0mm)}]current page.west) {\scalebox{-1}[-1]{\includegraphics[width=\paperwidth,angle=0]{kthgraphics/Linjemonster_himmelsbla_RGB_16x9_BL.png}}};
+  \node[anchor=center] at (current page.center) {
+    \textbf{\Huge{\color{white} #1}}
+  };
+\end{tikzpicture}
+}
+\begin{frame}[noframenumbering]
+    %\centering
+    %\textbf{\Huge{\color{white} #1}}
+\end{frame}
+}
+
+\newcommand{\transitionpagenavydbl}[1]{%
+\usebackgroundtemplate{
+\begin{tikzpicture}[remember picture,overlay]
+\shade[top color=kthcolor_navy,bottom color=kthcolor_navy]
+  ([shift={(0.0cm,0.0cm)}]current page.north west)
+     rectangle
+  ([shift={(0.0cm,0.0cm)}]current page.south east);
+  \node[] at  ([shift={(0.5\paperwidth,-0mm)}]current page.west) {\includegraphics[width=\paperwidth,angle=0]{kthgraphics/Linjemonster_digitalbla_RGB_16x9_BR.png}};
+  \node[] at  ([shift={(0.5\paperwidth,-0mm)}]current page.west) {\scalebox{1}[-1]{\includegraphics[width=\paperwidth,angle=0]{kthgraphics/Linjemonster_digitalbla_RGB_16x9_TL.png}}};
+  \node[] at  ([shift={(0.5\paperwidth,-0mm)}]current page.west) {\scalebox{-1}[-1]{\includegraphics[width=\paperwidth,angle=0]{kthgraphics/Linjemonster_digitalbla_RGB_16x9_BL.png}}};
+  \node[anchor=center] at (current page.center) {
+    \textbf{\Huge{\color{white} #1}}
+  };
+\end{tikzpicture}
+}
+\begin{frame}[noframenumbering]
+    %\centering
+    %\textbf{\Huge{\color{white} #1}}
+\end{frame}
+}
 %%%%%%%%%%%% SOME FORMAT FOR EVERY SLIDE
 
 %\setbeamercolor{normal}{fg=DarkGray}
